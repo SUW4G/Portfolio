@@ -1,0 +1,234 @@
+/* Portfolio recreation based on the supplied Figma screenshots */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap');
+
+:root {
+  --black: #050505;
+  --ink: #080808;
+  --paper: #f5f2f2;
+  --pink: #e99499;
+  --pink-light: #f0d4d4;
+  --gray-top: #d2d4ce;
+  --gray-bottom: #514c4d;
+  --page-gutter: 3.2%;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+.site-header {
+  height: 88px;
+  padding: 0 6.4% 0 3.2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #050505;
+  color: #f8f8f8;
+  position: relative;
+  z-index: 5;
+}
+.brand { align-self: stretch; display: flex; align-items: center; gap: 22px; position: relative; }
+.brand-mark {
+  width: 72px; height: 72px; margin-top: 28px; flex: 0 0 72px;
+  background: #050505; display: grid; place-items: center;
+  transform: rotate(-5deg); border-radius: 0 0 3px 3px;
+}
+.brand-mark span {
+  width: 51px; height: 51px; border: 2px solid #fff; border-radius: 50%;
+  display: grid; place-items: center; font: 400 36px Georgia, serif; transform: rotate(5deg);
+}
+.brand-name { align-self: flex-start; padding-top: 39px; font: 14px "Playfair Display", Georgia, serif; }
+.navigation { display: flex; align-items: center; gap: clamp(24px, 3.6vw, 58px); font-size: 15px; font-weight: 600; }
+.navigation a { transition: opacity .2s ease; }
+.navigation a:hover { opacity: .7; }
+.navigation .nav-projects { color: #111; background: #f4f2f2; padding: 7px 20px; border-radius: 24px; }
+
+.page-shell { margin: 0 var(--page-gutter); overflow: hidden; }
+.hero {
+  height: min(47.3vw, 690px); min-height: 530px; position: relative; overflow: hidden;
+  background: linear-gradient(180deg, #d7d9d3 0%, #a0a39c 47%, #504b4b 100%);
+}
+.hero-copy { position: absolute; z-index: 2; left: 7.2%; top: 32.5%; width: 49%; }
+.eyebrow { color: #dc858d; font: 500 22px "Roboto Mono", monospace; letter-spacing: 1px; margin: 0 0 3px; }
+.hero-name { font: 400 clamp(26px, 2.5vw, 39px) "Playfair Display", Georgia, serif; margin: 0 0 14px; white-space: nowrap; }
+.hero h1 { font-size: clamp(39px, 4.35vw, 67px); line-height: 1.04; letter-spacing: -.025em; font-weight: 500; margin: 0 0 4px; white-space: nowrap; }
+.hero-description { color: #f4f1f0; font-size: clamp(14px, 1.22vw, 19px); line-height: 1.5; margin: 0 0 8px; }
+.hero-line { display: flex; align-items: center; width: 100%; max-width: 645px; height: 19px; }
+.hero-line span { height: 2px; background: #090909; flex: 1; }
+.hero-line a { font: 36px/12px Arial, sans-serif; transform: translateX(-2px); }
+.socials { display: flex; align-items: center; gap: 17px; margin: 11px 0 0 16px; }
+.socials a { display: grid; place-items: center; width: 27px; height: 30px; color: #050505; }
+.socials svg { width: 28px; height: 28px; fill: #050505; stroke: #050505; stroke-width: 1.7; }
+.socials svg circle { fill: none; }
+.socials svg .dot { fill: #050505; stroke: none; }
+.facebook { background: #050505; color: #a9aaa4 !important; font: 700 25px Arial; border-radius: 50%; padding-top: 4px; }
+.x-social { font: 29px Arial; font-weight: 300; }
+.hero-art { position: absolute; inset: 0; overflow: hidden; }
+.pink-circle { position: absolute; border-radius: 50%; background: linear-gradient(140deg, #f39b9f, #d98084); }
+.circle-large { width: 45%; aspect-ratio: 1; top: 2.7%; right: -3.2%; }
+.circle-small { width: 33%; aspect-ratio: 1; right: 30%; bottom: -24%; background: linear-gradient(140deg, rgba(235,117,123,.88), rgba(204,104,108,.75)); }
+.portrait {
+  position: absolute; z-index: 1; width: 47%; height: auto; max-height: 100%;
+  object-fit: contain; object-position: bottom center; right: 4.3%; bottom: -1px;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.08));
+}
+
+.about-section {
+  min-height: 375px; padding: 0 6.1% 66px; position: relative;
+  background: linear-gradient(105deg, #554e4f 0%, #8f8282 55%, #bca9a6 100%);
+}
+.section-pill {
+  position: relative; top: -1px; margin: 0 auto 15px; transform: translateY(0);
+  width: max-content; padding: 8px 22px; border-radius: 25px; background: #21191a;
+  color: #fff; font: 500 15px "Playfair Display", Georgia, serif;
+}
+.about-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.3%; }
+.about-card {
+  min-height: 260px; padding: 35px 30px 28px; border-radius: 28px;
+  background: #dedddd; box-shadow: 0 13px 4px rgba(0,0,0,.28); text-align: center;
+}
+.about-card h2 { font-size: clamp(19px, 1.7vw, 26px); margin: 0 0 28px; font-weight: 700; }
+.about-card p { font-size: clamp(15px, 1.32vw, 20px); line-height: 1.45; max-width: 330px; margin: 0 auto; }
+
+.tools-section {
+  min-height: 265px; padding: 35px 3.8% 45px;
+  background: linear-gradient(180deg, #a4a79f 0%, #898b84 100%);
+}
+.tools-section h2 { font-size: 29px; font-weight: 400; margin: 0 0 17px; }
+.thin-rule { height: 2px; background: #171717; width: 100%; }
+.tools-list { display: flex; gap: 42px; align-items: flex-start; padding: 34px 12px 0; }
+.tool { min-width: 65px; display: flex; flex-direction: column; align-items: center; gap: 9px; text-align: center; color: #292929; font-size: 17px; line-height: 1.45; }
+.tool-icon { width: 34px; height: 34px; display: grid; place-items: center; background: #050505; color: #a4a79f; font: 700 20px Arial; }
+.adobe { border-radius: 2px; }
+.figma-icon { height: 34px; width: 28px; display: grid; grid-template-columns: 14px 14px; grid-template-rows: 11px 11px 11px; }
+.figma-icon i { display: block; background: #050505; }
+.figma-icon i:nth-child(1) { border-radius: 8px 0 0 8px; }
+.figma-icon i:nth-child(2) { border-radius: 0 8px 8px 0; }
+.figma-icon i:nth-child(3) { border-radius: 8px 0 0 8px; }
+.figma-icon i:nth-child(4) { border-radius: 0 8px 8px 0; }
+.figma-icon i:nth-child(5) { border-radius: 8px 0 8px 8px; grid-column: 1; }
+.canva-icon { width: 35px; height: 35px; display: grid; place-items: center; border-radius: 50%; background: #050505; color: #a4a79f; font: italic 8px Georgia, serif; border: 2px solid #050505; }
+
+.services-section { padding: 34px 3.8% 50px; background: linear-gradient(180deg, #898b84, #a9aba4); }
+.services-panel {
+  min-height: 520px; border-radius: 30px; padding: 34px 7% 50px;
+  background: linear-gradient(180deg, #e8e1e1 0%, #f8f5f5 100%);
+}
+.services-panel > h2 { text-align: center; font-size: clamp(36px, 4vw, 61px); line-height: 1; margin: 0 0 62px; font-weight: 700; }
+.services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7%; }
+.service-card { text-align: center; }
+.service-icon { width: 49px; height: 49px; fill: none; stroke: #050505; stroke-width: 4; stroke-linecap: square; stroke-linejoin: miter; }
+.service-card h3 { font-size: clamp(17px, 1.65vw, 25px); margin: 12px 0 39px; }
+.service-card p { font-size: clamp(14px, 1.28vw, 19px); line-height: 1.5; margin: 0 auto; max-width: 310px; }
+
+.projects-section {
+  padding: 30px 6.4% 55px; min-height: 475px;
+  background: linear-gradient(110deg, #efd4d2 0%, #e7aaaa 57%, #df9699 100%);
+}
+.projects-section > h2 { font-size: 30px; text-align: center; margin: 0 0 25px; font-weight: 700; }
+.project-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4.2%; }
+.project-card {
+  display: block; height: clamp(240px, 21.4vw, 330px); border-radius: 25px;
+  background: #fff; box-shadow: 0 13px 4px rgba(0,0,0,.24); transition: transform .2s ease, box-shadow .2s ease;
+}
+.project-card:hover { transform: translateY(-5px); box-shadow: 0 17px 8px rgba(0,0,0,.22); }
+
+.closing-section {
+  min-height: 260px; display: grid; place-items: center; text-align: center;
+  background: linear-gradient(100deg, #4c4748 0%, #8c8586 55%, #aaa3a3 100%); color: #fff;
+}
+.closing-section p { font: 400 clamp(30px, 3.3vw, 50px)/1.35 "Playfair Display", Georgia, serif; margin: 0; }
+.site-footer { background: #050505; color: #f1eeee; padding: 30px 10% 22px; font-size: 14px; }
+.footer-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.footer-profile { display: flex; align-items: center; gap: 9px; }
+.avatar { width: 54px; height: 54px; display: grid; place-items: center; background: #df898f; color: #171111; border-radius: 50%; font: 700 23px "Playfair Display", Georgia, serif; }
+.footer-profile p { margin: 0; }
+.footer-name { font-weight: 500; }
+.footer-role { color: #bdb8b8; margin-top: 3px !important; }
+.email-button, .home-button { display: inline-block; padding: 12px 22px; border-radius: 25px; background: #f5f3f3; color: #080808; font-weight: 700; }
+.footer-details { display: flex; flex-direction: column; gap: 5px; margin: 12px 0 40px 63px; color: #d0cccc; }
+.footer-bottom { border-top: 1px solid #a6a2a2; padding-top: 15px; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+.footer-bottom p { margin: 0; }
+
+@media (min-width: 1600px) {
+  .hero { height: 690px; }
+  .about-section { padding-bottom: 70px; }
+}
+@media (max-width: 900px) {
+  :root { --page-gutter: 2.4%; }
+  .site-header { height: 75px; padding: 0 3%; }
+  .brand { gap: 12px; }
+  .brand-mark { width: 56px; height: 56px; flex-basis: 56px; margin-top: 22px; }
+  .brand-mark span { width: 42px; height: 42px; font-size: 29px; }
+  .brand-name { padding-top: 31px; font-size: 12px; }
+  .navigation { gap: 18px; font-size: 13px; }
+  .hero { min-height: 500px; }
+  .hero-copy { left: 5%; top: 34%; width: 55%; }
+  .hero h1 { font-size: clamp(32px, 5.1vw, 47px); }
+  .hero-name { font-size: clamp(23px, 3vw, 30px); }
+  .portrait { width: 53%; right: -1%; }
+  .about-section { padding: 0 4% 48px; }
+  .about-card { padding: 27px 17px; min-height: 220px; border-radius: 22px; }
+  .about-card h2 { margin-bottom: 20px; }
+  .tools-list { gap: 27px; }
+  .services-panel { padding-left: 5%; padding-right: 5%; min-height: 460px; }
+  .services-grid { gap: 4%; }
+  .service-card h3 { margin-bottom: 24px; }
+  .projects-section { padding-left: 4%; padding-right: 4%; }
+  .project-card { height: 245px; }
+}
+@media (max-width: 620px) {
+  .site-header { height: auto; min-height: 88px; flex-wrap: wrap; gap: 8px; padding: 0 5% 13px; }
+  .brand { height: 58px; }
+  .brand-mark { margin-top: 8px; }
+  .brand-name { padding-top: 20px; }
+  .navigation { width: 100%; justify-content: space-between; gap: 8px; font-size: 12px; }
+  .navigation .nav-projects { padding: 6px 12px; }
+  .hero { height: 660px; min-height: 0; }
+  .hero-copy { left: 7%; top: 9%; width: 88%; }
+  .eyebrow { font-size: 17px; }
+  .hero-name { font-size: clamp(22px, 6vw, 30px); }
+  .hero h1 { font-size: clamp(30px, 8vw, 46px); white-space: normal; max-width: 95%; }
+  .hero-description { font-size: 15px; }
+  .hero-line { max-width: 90%; }
+  .socials { margin-left: 4px; }
+  .circle-large { width: 95%; right: -14%; top: 41%; }
+  .circle-small { width: 66%; right: 40%; bottom: -1%; }
+  .portrait { width: 88%; max-height: 64%; right: -2%; bottom: 0; }
+  .about-section { padding: 0 6% 40px; }
+  .section-pill { margin-bottom: 22px; }
+  .about-grid { grid-template-columns: 1fr; gap: 18px; }
+  .about-card { min-height: 0; padding: 27px 24px; }
+  .about-card h2 { font-size: 22px; margin-bottom: 15px; }
+  .about-card p { font-size: 16px; }
+  .tools-section { padding: 28px 5% 35px; }
+  .tools-section h2 { font-size: 24px; }
+  .tools-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 12px; padding: 27px 0 0; }
+  .tool { font-size: 14px; }
+  .services-section { padding: 25px 4% 35px; }
+  .services-panel { padding: 30px 8% 38px; border-radius: 24px; }
+  .services-panel > h2 { font-size: 37px; margin-bottom: 35px; }
+  .services-grid { grid-template-columns: 1fr; gap: 38px; }
+  .service-card h3 { font-size: 20px; margin: 10px 0 13px; }
+  .service-card p { font-size: 15px; }
+  .projects-section { padding: 28px 6% 43px; }
+  .projects-section > h2 { font-size: 25px; }
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .project-card { height: 230px; border-radius: 19px; }
+  .closing-section { min-height: 200px; padding: 25px; }
+  .closing-section p { font-size: 29px; }
+  .site-footer { padding: 28px 6% 20px; }
+  .footer-top { align-items: flex-start; }
+  .footer-profile { gap: 8px; }
+  .avatar { width: 44px; height: 44px; }
+  .footer-name { font-size: 12px; }
+  .footer-role { font-size: 12px; }
+  .email-button, .home-button { padding: 10px 15px; font-size: 12px; white-space: nowrap; }
+  .footer-details { margin-left: 52px; font-size: 12px; margin-bottom: 30px; }
+  .footer-bottom { font-size: 12px; }
+}
